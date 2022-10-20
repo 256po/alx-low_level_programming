@@ -3,9 +3,6 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-<<<<<<< HEAD
-#include <string.h> 
-=======
 #include <string.h>
 
 /**
@@ -35,4 +32,3 @@ void free_list(list_t *head);
 void print_first(void) __attribute__ ((constructor));
 
 #endif /* LISTS_H_ */
->>>>>>> b732811f91d16e4932207c1590f49e02c8fc9cd5
