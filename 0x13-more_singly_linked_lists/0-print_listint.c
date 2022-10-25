@@ -1,50 +1,20 @@
 #include "lists.h"
 
 /**
- * print_listint - print list.
- * @h: list
- * Return: The elements linked.
+ * print_listint - prints out the contents of the linked list
+ * @h: points to a node on the linked list
+ *
+ * Return: number of nodes on the list
  */
 size_t print_listint(const listint_t *h)
 {
-	int i = 0;
+	unsigned int nodes = 0;
 
 	while (h != NULL)
 	{
-		printf("%i\n", h->n);
+		printf("%d\n", h->n);
+		nodes++;
 		h = h->next;
-		i++;
 	}
-	return (i);
-}
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
-#include "lists.h"
-
-/**
- * main - check the code for Holberton School students.
- *
- * Return: Always 0.
- */
-int main(void)
-{
-	listint_t *head;
-	listint_t *new;
-	listint_t hello = {8, NULL};
-	size_t n;
-
-	head = &hello;
-	new = malloc(sizeof(listint_t));
-	if (new == NULL)
-	{
-		printf("Error\n");
-		return (1);
-	}
-	new->n = 9;
-	new->next = head;
-	n = print_listint(head);
-	printf("-> %lu elements\n", n);
-	free(new);
-	return (0);
+	return (nodes);
 }
