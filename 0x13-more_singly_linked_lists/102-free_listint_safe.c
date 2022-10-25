@@ -17,7 +17,7 @@ size_t free_listint_safe(listint_t **h)
 	{
 		temp = *h;
 		temp = temp->next;
-		free_list(temp);
+		free_listint(temp);
 		counter++;
 	}
 	*h = NULL;
@@ -30,7 +30,7 @@ size_t free_listint_safe(listint_t **h)
  * @head: A pointer to the listint_t structure
  * Return: Nothing
  */
-void free_list(listint_t *head)
+void free_listint(listint_t *head)
 {
 	listint_t *temp;
 
@@ -39,7 +39,7 @@ void free_list(listint_t *head)
 		temp = head;
 		temp = temp->next;
 		free(temp);
-		free_list(temp);
+		free_listint(temp);
 	}
 	free(head);
 }
