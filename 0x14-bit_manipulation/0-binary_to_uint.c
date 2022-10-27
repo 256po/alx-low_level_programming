@@ -15,6 +15,7 @@ unsigned int binary_to_uint(const char *str)
 
 	if (str == NULL)
 		return (0);
+
 	while (str[count] != '\0')
 	{
 		if (str[count] == '1' || str[count] == '0')
@@ -22,6 +23,7 @@ unsigned int binary_to_uint(const char *str)
 		else
 			return (0);
 	}
+
 	for (exp = 0, i = count - 1; i >= 0; exp++, i--)
 		result += (str[i] - '0') * _pow(2, exp);
 
@@ -29,10 +31,11 @@ unsigned int binary_to_uint(const char *str)
 }
 
 /**
- * pow - returns the power of a base to a specific exponent
+ * _pow - returns the power of a base to a specific exponent
  * @base: base number
  * @exp: exponent value
- * Return: @base ^ @ex/
+ *
+ * Return: @base ^ @exp
  */
 unsigned int _pow(int base, int exp)
 {
