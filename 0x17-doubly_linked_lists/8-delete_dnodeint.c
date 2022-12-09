@@ -1,36 +1,48 @@
 #include "lists.h"
-#include <stdlib.h>
 
 /**
- * delete_dnodeint_at_index - A function that inserts a node at position.
- * @h: The double pointer to the head.
- * @index: The index to insert new node at.
- * Return: 1 on success, -1 on failure.
+ * delete_dnodeint_at_index - deletes a node on a D.L.L
+ * @head: pointer to the address of head node
+ * @index: index of node to delete from the D.L.L
+ *
+ * Return: 1 (Success) or -1 (fail)
  */
-int delete_dnodeint_at_index(dlistint_t **h, unsigned int index)
+int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	dlistint_t *temp = NULL;
+	dlistint_t *curr;
 	unsigned int i = 0;
 
-	if (!h || !(*h))
-	{
+	if (*head == NULL)
 		return (-1);
-	}
-	else
+	curr = *head;
+	if (index == 0)
 	{
-		temp = *h;
-		while (index != i++ && temp)
-			temp = temp->next;
-		if (!temp)
-			return (-1);
-		if (temp->next)
-			temp->next->prev = temp->prev;
-		if (index == 0)
-			*h = temp->next;
+		if ((*head)->next != NULL)
+		{
+			*head = (*head)->next;
+			(*head)->prev = NULL;
+		}
 		else
-			temp->prev->next = temp->next;
-		free(temp);
+			*head = (*head)->next;
+		free(curr);
 		return (1);
+	}
+	while (curr != NULL)
+	{
+		if (i == index)
+		{
+			if (curr->next != NULL)
+			{
+				(curr->prev)->next = curr->next;
+				(curr->next)->prev = curr->prev;
+			}
+			else
+				(curr->prev)->next = curr->next;
+			free(curr);
+			return (1);
+		}
+		curr = curr->next;
+		i++;
 	}
 	return (-1);
 }
