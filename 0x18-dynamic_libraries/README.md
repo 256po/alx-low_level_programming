@@ -1,0 +1,1 @@
+Dyinamic and static ..lib
